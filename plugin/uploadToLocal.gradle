@@ -1,0 +1,10 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('../repo'))
+        pom.groupId = 'com.ezbuy'
+        pom.artifactId = 'ezgradle'
+        pom.version = project.plugin_version
+    }
+}

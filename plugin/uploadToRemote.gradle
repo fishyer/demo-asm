@@ -1,0 +1,19 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: 'http://192.168.199.65:8081/repository/ezgradle/') {//仓库地址
+            authentication(userName: "admin",//用户名
+                    password: "admin123")//密码
+        }
+
+        pom.project {
+            url 'http://192.168.199.65:8081/repository/ezgradle/'//仓库地址
+            groupId = 'com.ezbuy'
+            artifactId = 'ezgradle'
+            version = project.plugin_version
+        }
+
+    }
+
+}
