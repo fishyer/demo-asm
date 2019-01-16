@@ -1,4 +1,4 @@
-package com.shanhy.demo.asm.hello;
+package com.ezbuy.asmdemo.aop;
 
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -18,14 +18,14 @@ public class AopMethodVisitor extends MethodVisitor implements Opcodes {
     @Override
     public void visitCode() {
         super.visitCode();
-        this.visitMethodInsn(INVOKESTATIC, "com/shanhy/demo/asm/hello/AopInteceptor", "before", "()V", false);
+        this.visitMethodInsn(INVOKESTATIC, "com/ezbuy/asmdemo/aop/AopInteceptor", "before", "()V", false);
     }
 
     @Override
     public void visitInsn(int opcode) {
         // 在返回之前安插after 代码。
         if (opcode >= IRETURN && opcode <= RETURN) {
-            this.visitMethodInsn(INVOKESTATIC, "com/shanhy/demo/asm/hello/AopInteceptor", "after", "()V", false);
+            this.visitMethodInsn(INVOKESTATIC, "com/ezbuy/asmdemo/aop/AopInteceptor", "after", "()V", false);
         }
         super.visitInsn(opcode);
     }

@@ -1,4 +1,4 @@
-package com.shanhy.demo.asm.hello;
+package com.ezbuy.asmdemo.aop;
 
 import org.objectweb.asm.Opcodes;
 
